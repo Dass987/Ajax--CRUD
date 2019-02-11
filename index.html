@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+	<title>AJAX Crud</title>
+
+	<!--Import Google Icon Font-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<!-- Compiled and minified CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+	<style>
+	
+		#search-bar {
+			border: 1px solid #e0e0e0;
+		}
+
+		.search-bar-container {
+			margin: 4rem auto;
+		}
+
+	</style>
+
+</head>
+<body>
+
+	<header>
+		<nav class="z-depth-0 grey darken-2">
+			<div class="container">
+				<div class="nav-wrapper">
+					<a href="/" class="brand-logo">Task App</a>
+					<a data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+					<ul class="right hide-on-med-and-down">
+						<li><a>Sass</a></li>
+						<li><a>Components</a></li>
+						<li><a>Javascript</a></li>
+						<li><a>Mobile</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+		
+		<ul class="sidenav" id="mobile-demo">
+			<li><a>Sass</a></li>
+			<li><a>Components</a></li>
+			<li><a>Javascript</a></li>
+			<li><a>Mobile</a></li>
+		</ul>
+	</header>
+	<br/>
+	<main>
+		<div class="container">
+			<div class="row">
+				<div class="col s12 search-bar-container">
+					<div id="search-bar" class="nav-wrapper">
+						<form>
+							<div class="input-field">
+								<input id="search" type="search" required>
+								<label class="label-icon" for="search"><i class="material-icons">search</i></label>
+								<i class="material-icons">close</i>
+							</div>
+						</form>
+					</div>
+				</div>
+				<div class="col s12 m5">
+					<h3 class="center-align">New task</h3>
+					<form id="task-form">
+						<div class="row">
+							<div class="col s12 input-field">
+								<input type="text" name="title" id="title">
+								<label for="title">Task title</label>
+							</div>
+							<div class="col s12 input-field">
+								<textarea name="description" id="description" class="materialize-textarea"></textarea>
+								<label for="description">Task description</label>
+							</div>
+						</div>
+						<div class="col s12 center-align">
+							<button type="submit" class="btn waves-effect waves-light grey darken-2">
+								Save
+							</button>
+						</div>
+					</form>
+				</div>
+				<div class="col s12 m7">
+					<h3 class="center-align">Task list</h3>
+					<table>
+						<thead>
+							<tr>
+								<th>Name</th>
+								<th>Item Name</th>
+								<th>Item Price</th>
+							</tr>
+						</thead>
+					
+						<tbody>
+							<tr>
+								<td>Alvin</td>
+								<td>Eclair</td>
+								<td>$0.87</td>
+							</tr>
+							<tr>
+								<td>Alan</td>
+								<td>Jellybean</td>
+								<td>$3.76</td>
+							</tr>
+							<tr>
+								<td>Jonathan</td>
+								<td>Lollipop</td>
+								<td>$7.00</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<!-- JQuery -->
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	
+	<!-- Compiled and minified JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+	<!-- Custom script -->
+	<script src="app.js"></script>
+
+</body>
+</html>
