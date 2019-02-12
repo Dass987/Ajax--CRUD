@@ -7,8 +7,8 @@
 		"ajax-task-app"
 	);
 
-	if($connection) {
-		echo "DB is connected";
+	if(!$connection) {
+		die('Connection Error ');
 	}
 
 ?>

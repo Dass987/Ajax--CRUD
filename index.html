@@ -24,6 +24,15 @@
 			margin: 4rem auto;
 		}
 
+		#results-zone {
+			display: none;
+		}
+
+		#container {
+			margin: 10px auto;
+			padding: 10px;
+		}
+
 	</style>
 
 </head>
@@ -65,6 +74,9 @@
 								<i class="material-icons">close</i>
 							</div>
 						</form>
+						<div id="results-zone">
+							<ul id="container"></ul>
+						</div>
 					</div>
 				</div>
 				<div class="col s12 m5">
@@ -92,29 +104,12 @@
 					<table>
 						<thead>
 							<tr>
-								<th>Name</th>
-								<th>Item Name</th>
-								<th>Item Price</th>
+								<th>Id</th>
+								<th>Title</th>
+								<th>Description</th>
 							</tr>
 						</thead>
-					
-						<tbody>
-							<tr>
-								<td>Alvin</td>
-								<td>Eclair</td>
-								<td>$0.87</td>
-							</tr>
-							<tr>
-								<td>Alan</td>
-								<td>Jellybean</td>
-								<td>$3.76</td>
-							</tr>
-							<tr>
-								<td>Jonathan</td>
-								<td>Lollipop</td>
-								<td>$7.00</td>
-							</tr>
-						</tbody>
+						<tbody id="table-tasks-body"></tbody>
 					</table>
 				</div>
 			</div>
