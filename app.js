@@ -1,7 +1,6 @@
 $(function () {
-	console.log("Hello world!");
-	$('.sidenav').sidenav();
 
+	$('.sidenav').sidenav();
 
 	$("#search").keyup(() => {
 		
@@ -45,7 +44,7 @@ $(function () {
 	$("#task-form").submit(e => {
 
 		const postData = {
-			name: $("#title").val(),
+			title: $("#title").val(),
 			description: $("#description").val()
 		};
 
