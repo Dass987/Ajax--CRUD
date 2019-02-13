@@ -91,13 +91,15 @@
 								<textarea name="description" id="description" class="materialize-textarea"></textarea>
 								<label for="description">Task description</label>
 							</div>
-						</div>
-						<div class="col s12 center-align">
-							<button type="submit" class="btn waves-effect waves-light grey darken-2">
-								Save
-							</button>
+							<div class="col s12 center-align">
+								<button type="submit" class="btn waves-effect waves-light grey darken-2">
+									Save
+								</button>
+							</div>
 						</div>
 					</form>
+					<br>
+					<h5 id="feedback-message" class="center-align"></h5>
 				</div>
 				<div class="col s12 m7">
 					<h3 class="center-align">Task list</h3>
@@ -107,6 +109,7 @@
 								<th>Id</th>
 								<th>Title</th>
 								<th>Description</th>
+								<th>Action</th>
 							</tr>
 						</thead>
 						<tbody id="table-tasks-body"></tbody>

@@ -49,10 +49,51 @@ $(function () {
 		};
 
 		$.post("task-add.php", postData, response => {
-			console.log(response);
+			
+			$("#task-form").trigger('reset');
+			$("#feedback-message").html(response);
+			
+			fetchTasks();
+
 		});
 
 		e.preventDefault();
 	});
-	
+
+	fetchTasks();
+
+	$(document).on("click", ".task-delete", () => {
+		let element = $(this).parent().siblings().eq(0) .text();
+		//
+		console.log(element);
+	});
+
 });
+
+function fetchTasks() {
+	
+	$.ajax({
+		url: 'task-list.php',
+		type: 'GET',
+		success: response => {
+
+			let tasks = JSON.parse(response);
+			let template = '';
+
+			tasks.forEach(task => {
+				template += `<tr>
+					<td>${task.id}</td>
+					<td><a>${task.title}</a></td>
+					<td>${task.description}</td>
+					<td>
+						<button class="btn waves-effect waves-light red darken-1 task-delete"><i class="material-icons">delete</i></button>
+					</td>
+				</tr>`;
+			});
+
+			$("#table-tasks-body").html(template);
+
+		}
+	});
+
+}
