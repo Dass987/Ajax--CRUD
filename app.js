@@ -62,10 +62,30 @@ $(function () {
 
 	fetchTasks();
 
-	$(document).on("click", ".task-delete", () => {
-		let element = $(this).parent().siblings().eq(0) .text();
-		//
-		console.log(element);
+	$(document).on("click", ".task-delete", function() {
+		
+		if (confirm('Are you sure you want to delete it?')) {
+			let element = $(this)[0].parentElement.parentElement;
+			let id = $(element).attr('taskId');
+
+			$.post('task-delete.php', {id}, function (response) {
+				$("#feedback-message").html(response);
+				
+				fetchTasks();
+			});
+		}
+
+	});
+
+	$(document).on("click", ".task-item", function (e) {
+
+		let element = $(this)[0].parentElement.parentElement;
+		let id = $(element).attr("taskId");
+
+		$.post('task-single.php', {id}, function (response) {
+			
+		});
+
 	});
 
 });
@@ -81,9 +101,11 @@ function fetchTasks() {
 			let template = '';
 
 			tasks.forEach(task => {
-				template += `<tr>
+				template += `<tr taskId="${task.id}">
 					<td>${task.id}</td>
-					<td><a>${task.title}</a></td>
+					<td>
+						<a class="task-item">${task.title}</a>
+					</td>
 					<td>${task.description}</td>
 					<td>
 						<button class="btn waves-effect waves-light red darken-1 task-delete"><i class="material-icons">delete</i></button>
