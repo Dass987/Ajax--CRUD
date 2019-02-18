@@ -2,6 +2,8 @@ $(function () {
 
 	$('.sidenav').sidenav();
 
+	let edit = false;
+
 	$("#search").keyup(() => {
 		
 		let search = $("#search").val();
@@ -44,11 +46,14 @@ $(function () {
 	$("#task-form").submit(e => {
 
 		const postData = {
+			id: $("#taskId").val(),
 			title: $("#title").val(),
 			description: $("#description").val()
 		};
 
-		$.post("task-add.php", postData, response => {
+		let url = edit === false ? 'task-add.php' : 'task-edit.php';
+
+		$.post(url, postData, response => {
 			
 			$("#task-form").trigger('reset');
 			$("#feedback-message").html(response);
@@ -84,6 +89,17 @@ $(function () {
 
 		$.post('task-single.php', {id}, function (response) {
 			
+			const task = JSON.parse(response);
+			console.log(task);
+
+			$("#taskId").val(task[0].id);
+			$("#title").val(task[0].title);
+			$("#description").val(task[0].description);
+
+			M.updateTextFields();
+
+			edit = true;
+
 		});
 
 	});
